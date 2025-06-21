@@ -1,20 +1,28 @@
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
+import { SafeAreaView, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { CreateTask, TaskList } from './components';
+import { Provider } from 'react-redux';
+import store from './store/store';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  const { width } = useWindowDimensions();
 
   return (
-    <View style={styles.container}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NewAppScreen templateFileName="App.tsx" />
-    </View>
+    <Provider store={store}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={[styles.container, { width }]}>
+          <CreateTask />
+          <TaskList />
+        </View>
+      </SafeAreaView>
+    </Provider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    gap: 30,
+    padding: 35,
   },
 });
 
