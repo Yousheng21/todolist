@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ITask, TFilter } from '../../interfaces/task.interface';
+import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+import { type ITask, type TFilter } from '../../interfaces/task.interface';
 
 interface IInitialState {
   tasks: ITask[];

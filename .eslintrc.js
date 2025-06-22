@@ -4,23 +4,13 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    '@typescript-eslint',
-    'react',
-    'react-native',
-    'react-hooks',
-    'unused-imports',
-  ],
+  plugins: ['@typescript-eslint', 'react', 'react-native', 'react-hooks', 'unused-imports'],
   rules: {
     'no-console': ['error', { allow: ['error'] }],
     'no-nested-ternary': 'error',

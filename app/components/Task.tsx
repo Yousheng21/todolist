@@ -1,11 +1,11 @@
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, TextInputKeyPressEvent } from 'react-native';
-import React, { FC, useMemo } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { type FC, useMemo } from 'react';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import SvgDelete from '../assets/delete.svg';
 import SvgTask from '../assets/task.svg';
 import SvgTaskSuccess from '../assets/task-success.svg';
 import SvgTaskImportant from '../assets/task-important.svg';
-import { ITask } from '../interfaces/task.interface';
+import { type ITask } from '../interfaces/task.interface';
 import { colors, fontSize } from '../theme';
 import { useDispatch } from 'react-redux';
 import { edit, remove } from '../store/slices/task.slice';
@@ -31,12 +31,14 @@ export const Task: FC<IProps> = ({ item, setSelectTask, selectTask }) => {
 
   return (
     <TouchableOpacity
-      onPress={() => setSelectTask(item)}
+      onPress={() => {
+        setSelectTask(item);
+      }}
       style={[style.container, selectTask?.id === item.id && { backgroundColor: colors.backdrop }]}
     >
       <View style={{ flexDirection: 'row', gap: 10, flex: 0.75 }}>
         {icon}
-        <View style={{flex: 1}}>
+        <View style={{ flex: 1 }}>
           <Text numberOfLines={1} style={[item.isCompleted && { textDecorationLine: 'line-through' }, style.textTitle]}>
             {item.title}
           </Text>
@@ -78,11 +80,11 @@ const style = StyleSheet.create({
   },
   textTitle: {
     fontSize: fontSize.extra,
-    width: "70%"
+    width: '70%',
   },
   textDesc: {
     fontSize: fontSize.small,
-    width: "70%",
-    fontStyle: "italic"
+    width: '70%',
+    fontStyle: 'italic',
   },
 });

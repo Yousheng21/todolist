@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { type FC, useEffect, useRef, useState } from 'react';
 import { BottomSheetModalProvider, BottomSheetModal, BottomSheetView } from '@gorhom/bottom-sheet';
 import BouncyCheckbox from 'react-native-bouncy-checkbox';
 import { useDispatch } from 'react-redux';
-import { ITask } from '../interfaces/task.interface';
+import { type ITask } from '../interfaces/task.interface';
 import { create, edit } from '../store/slices/task.slice';
 import uuid from 'react-native-uuid';
 import { colors, fontSize } from '../theme';
@@ -25,7 +25,7 @@ interface IProps {
 export const Modal: FC<IProps> = ({ isVisible, onClose, task }) => {
   const dispatch = useDispatch();
 
-  const [data, setData] = useState<ITask>(task ? task : template);
+  const [data, setData] = useState<ITask>(task || template);
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   useEffect(() => {
@@ -81,7 +81,9 @@ export const Modal: FC<IProps> = ({ isVisible, onClose, task }) => {
             <TextInput
               style={styles.input}
               value={data.title}
-              onChangeText={(text) => handleData('title', text)}
+              onChangeText={(text) => {
+                handleData('title', text);
+              }}
               placeholder="Name"
             />
           </View>
@@ -89,7 +91,9 @@ export const Modal: FC<IProps> = ({ isVisible, onClose, task }) => {
             <Text style={{ flex: 0.3 }}>Description: </Text>
             <TextInput
               value={data.description}
-              onChangeText={(text) => handleData('description', text)}
+              onChangeText={(text) => {
+                handleData('description', text);
+              }}
               placeholder="Descpription"
               style={styles.input}
               multiline
@@ -103,7 +107,9 @@ export const Modal: FC<IProps> = ({ isVisible, onClose, task }) => {
               size={30}
               style={{ width: 150 }}
               isChecked={data.type === 'important'}
-              onPress={(isChecked) => handleData('type', isChecked ? 'important' : 'usual')}
+              onPress={(isChecked) => {
+                handleData('type', isChecked ? 'important' : 'usual');
+              }}
             />
             <TouchableOpacity style={styles.btn} onPress={handleSubmit}>
               <Text style={{ color: colors.textLight }}>{task ? 'Edit' : 'Create'}</Text>

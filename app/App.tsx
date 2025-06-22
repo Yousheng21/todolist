@@ -1,3 +1,4 @@
+import React from 'react';
 import { SafeAreaView, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { TaskList } from './components';
 import { Provider } from 'react-redux';

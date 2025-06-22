@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { colors, fontSize } from '../theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter, selectTasks } from '../store/slices/task.slice';
-import { TFilter } from '../interfaces/task.interface';
+import { type TFilter } from '../interfaces/task.interface';
 
 export const Filters = () => {
   const dispatch = useDispatch();
@@ -45,6 +45,6 @@ const style = StyleSheet.create({
   text: {
     color: colors.textDark,
     fontSize: fontSize.normal,
-    textTransform: "capitalize"
+    textTransform: 'capitalize',
   },
 });

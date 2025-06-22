@@ -1,11 +1,11 @@
-import { View, FlatList, StyleSheet, Button, TouchableOpacity, Text } from 'react-native';
+import { View, FlatList, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import React, { useMemo, useState } from 'react';
 import { Task } from './Task';
 import { Filters } from './Filters';
 import { useSelector } from 'react-redux';
 import { selectTasks } from '../store/slices/task.slice';
 import { Modal } from './Modal';
-import { ITask } from '../interfaces/task.interface';
+import { type ITask } from '../interfaces/task.interface';
 import { colors, fontSize } from '../theme';
 
 export const TaskList = () => {
@@ -41,7 +41,12 @@ export const TaskList = () => {
           data={filterTasks}
           renderItem={({ item }) => <Task setSelectTask={handlePressTask} selectTask={selectTask} item={item} />}
         />
-        <TouchableOpacity style={styles.btn} onPress={() => setIsVisible(true)}>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={() => {
+            setIsVisible(true);
+          }}
+        >
           <Text style={styles.btnTitle}>Create Task</Text>
         </TouchableOpacity>
       </View>
