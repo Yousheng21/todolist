@@ -9,7 +9,7 @@
 ### Android
 Необходимо добавить файл local.proporties в корень папки android с подобным содержимым
 ``` sdk.dir = /Users/{name}/Library/Android/sdk ```
-Затем запускать ч отурытым эмулятором android studio
+Затем запускать с открытым эмулятором android studio
 ```sh
 yarn android
 ```
