@@ -8,8 +8,8 @@ interface IInitialState {
 
 const initialState: IInitialState = {
   tasks: [
-    { id: '32', title: '3123', description: '32', isCompleted: true, type: 'usual' },
-    { id: '12', title: 'zz', description: '1233', isCompleted: false, type: 'important' },
+    { id: '3213199', title: 'fkjsdhfjhsdgfjkhgs', description: 'sdjhgfkhjsgdkfjhsdf', isCompleted: true, type: 'usual' },
+    { id: '3123123', title: 'name', description: 'Desc', isCompleted: false, type: 'important' },
   ],
   filter: 'all',
 };
