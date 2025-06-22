@@ -7,6 +7,7 @@ import { type ITask } from '../interfaces/task.interface';
 import { create, edit } from '../store/slices/task.slice';
 import uuid from 'react-native-uuid';
 import { colors, fontSize } from '../theme';
+import { displayToast } from '../utils/toast';
 
 const template: ITask = {
   id: '',
@@ -55,6 +56,8 @@ export const Modal: FC<IProps> = ({ isVisible, onClose, task }) => {
     } else {
       dispatch(create({ ...data, id: uuid.v4() }));
     }
+
+    displayToast('success', 'Success', `Task ${data.title} is save`)
     handleClose();
   };
 

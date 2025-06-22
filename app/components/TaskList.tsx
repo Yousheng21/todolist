@@ -41,12 +41,7 @@ export const TaskList = () => {
           data={filterTasks}
           renderItem={({ item }) => <Task setSelectTask={handlePressTask} selectTask={selectTask} item={item} />}
         />
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={() => {
-            setIsVisible(true);
-          }}
-        >
+        <TouchableOpacity style={styles.btn} onPress={() => setIsVisible(true)}>
           <Text style={styles.btnTitle}>Create Task</Text>
         </TouchableOpacity>
       </View>

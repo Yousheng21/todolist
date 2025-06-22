@@ -9,6 +9,7 @@ import { type ITask } from '../interfaces/task.interface';
 import { colors, fontSize } from '../theme';
 import { useDispatch } from 'react-redux';
 import { edit, remove } from '../store/slices/task.slice';
+import { displayToast } from '../utils/toast';
 
 interface IProps {
   item: ITask;
@@ -54,7 +55,12 @@ export const Task: FC<IProps> = ({ item, setSelectTask, selectTask }) => {
           size={25}
           onPress={(isCompleted) => dispatch(edit({ id: item.id, isCompleted }))}
         />
-        <TouchableOpacity onPress={() => dispatch(remove(item.id))}>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(remove(item.id));
+            displayToast('success', 'Success', `Task ${item.title} is remove`);
+          }}
+        >
           <SvgDelete width={32} height={32} />
         </TouchableOpacity>
       </View>

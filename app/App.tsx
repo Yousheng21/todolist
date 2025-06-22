@@ -3,7 +3,7 @@ import { SafeAreaView, StyleSheet, useWindowDimensions, View } from 'react-nativ
 import { TaskList } from './components';
 import { Provider } from 'react-redux';
 import store from './store/store';
-
+import Toast from 'react-native-toast-message';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
           </View>
         </SafeAreaView>
       </Provider>
+      <Toast />
     </GestureHandlerRootView>
   );
 }
