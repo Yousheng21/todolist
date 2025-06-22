@@ -1,20 +1,23 @@
 import { SafeAreaView, StyleSheet, useWindowDimensions, View } from 'react-native';
-import { CreateTask, TaskList } from './components';
+import { TaskList } from './components';
 import { Provider } from 'react-redux';
 import store from './store/store';
+
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 function App() {
   const { width } = useWindowDimensions();
 
   return (
-    <Provider store={store}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <View style={[styles.container, { width }]}>
-          <CreateTask />
-          <TaskList />
-        </View>
-      </SafeAreaView>
-    </Provider>
+    <GestureHandlerRootView>
+      <Provider store={store}>
+        <SafeAreaView style={{ flex: 1 }}>
+          <View style={[styles.container, { width }]}>
+            <TaskList />
+          </View>
+        </SafeAreaView>
+      </Provider>
+    </GestureHandlerRootView>
   );
 }
 
@@ -23,6 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 30,
     padding: 35,
+  },
+  contentContainer: {
+    flex: 1,
+    padding: 36,
+    alignItems: 'center',
   },
 });
 

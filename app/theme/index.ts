@@ -1,6 +1,6 @@
-import { Dimensions } from "react-native";
+import { Dimensions } from 'react-native';
 
-const {height} = Dimensions.get('screen');
+const { height } = Dimensions.get('screen');
 
 export const fontSize = {
   small: height * 0.014,
@@ -8,4 +8,13 @@ export const fontSize = {
   normal: height * 0.018,
   large: height * 0.022,
   extra: height * 0.024,
+};
+
+export const colors = {
+  main: 'grey',
+  secondary: 'lightgrey',
+  backdrop: '#e6e8e8',
+  textDark: '#424141',
+  textLight: 'white',
+  shadow: 'rgba(0, 0, 0)',
 };

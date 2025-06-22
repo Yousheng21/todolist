@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import React, { useMemo } from 'react';
-import { fontSize } from '../theme';
+import { colors, fontSize } from '../theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter, selectTasks } from '../store/slices/task.slice';
 import { TFilter } from '../interfaces/task.interface';
@@ -14,10 +14,10 @@ export const Filters = () => {
 
     return (
       <TouchableOpacity
-        style={[style.btn, isSelect && { backgroundColor: 'grey' }]}
+        style={[style.btn, isSelect && { backgroundColor: colors.main }]}
         onPress={() => dispatch(changeFilter(type))}
       >
-        <Text style={[style.text, isSelect && { color: 'white' }]}>{type}</Text>
+        <Text style={[style.text, isSelect && { color: colors.textLight }]}>{type}</Text>
       </TouchableOpacity>
     );
   };
@@ -37,13 +37,14 @@ const style = StyleSheet.create({
     gap: 3,
   },
   btn: {
-    borderColor: 'grey',
+    borderColor: colors.main,
     borderWidth: 1,
     borderRadius: 5,
     padding: 5,
   },
   text: {
-    color: 'grey',
+    color: colors.textDark,
     fontSize: fontSize.normal,
+    textTransform: "capitalize"
   },
 });
